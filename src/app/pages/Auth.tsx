@@ -25,7 +25,7 @@ export default function Auth() {
                 if (error) {
                     setError(error.message);
                 } else {
-                    navigate('/home');
+                    navigate('/');
                 }
             } else {
                 if (!teamName.trim()) {
@@ -37,7 +37,7 @@ export default function Auth() {
                 if (error) {
                     setError(error.message);
                 } else {
-                    navigate('/home');
+                    navigate('/');
                 }
             }
         } catch (err) {
