@@ -9,6 +9,8 @@ type Profile = {
     avatar_emoji: string;
     league_id: string | null;
     budget_remaining: number;
+    created_at: string;
+    updated_at: string;
 };
 
 type AuthContextType = {

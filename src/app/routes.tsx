@@ -5,6 +5,7 @@ import MyTeam from "./pages/MyTeam";
 import Standings from "./pages/Standings";
 import Market from "./pages/Market";
 import Calendar from "./pages/Calendar";
+import Settings from "./pages/Settings";
 import Auth from "./pages/Auth";
 import { useAuth } from "./contexts/AuthContext";
 
@@ -20,7 +21,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
     return <Navigate to="/auth" replace />;
   }
 
-  return <>{ children } </>;
+  return <>{children} </>;
 }
 
 export const router = createBrowserRouter([
@@ -28,12 +29,13 @@ export const router = createBrowserRouter([
     path: "/",
     Component: Layout,
     children: [
-      { index: true, Component: Home },
-      { path: "squadra", Component: MyTeam },
-      { path: "classifica", Component: Standings },
-      { path: "mercato", Component: Market },
-      { path: "calendario", Component: Calendar },
+      { index: true, element: <ProtectedRoute><Home /></ProtectedRoute> },
+      { path: "squadra", element: <ProtectedRoute><MyTeam /></ProtectedRoute> },
+      { path: "classifica", element: <ProtectedRoute><Standings /></ProtectedRoute> },
+      { path: "mercato", element: <ProtectedRoute><Market /></ProtectedRoute> },
+      { path: "calendario", element: <ProtectedRoute><Calendar /></ProtectedRoute> },
     ],
   },
+  { path: "/impostazioni", element: <ProtectedRoute><Settings /></ProtectedRoute> },
   { path: "/auth", Component: Auth },
 ]);

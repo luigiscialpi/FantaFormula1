@@ -6,13 +6,15 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Tipi per il database Supabase
-export type UserProfile = {
+export type Profile = {
     id: string;
     email: string;
     team_name: string;
     avatar_emoji: string;
     league_id: string | null;
+    budget_remaining: number;
     created_at: string;
+    updated_at: string;
 };
 
 export type League = {

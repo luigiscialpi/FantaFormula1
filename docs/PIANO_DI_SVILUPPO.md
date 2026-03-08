@@ -10,6 +10,7 @@
 - [x] **FASE 0** - Preparazione: Configurazione Ionic + Capacitor + Supabase
 - [x] **FASE 1** - Autenticazione: Login/Registrazione con Supabase Auth
 - [x] **FASE 1.5** - Tema Chiaro: Sistema di theming con CSS custom properties + toggle light/dark
+- [ ] **FASE 1.6** - Gestione Account: Profilo, impostazioni, logout
 - [ ] **FASE 2** - Database e API F1: Integrazione Jolpica API
 - [ ] **FASE 3** - Lega Privata: Sistema punteggi e leghe
 - [ ] **FASE 4** - Mobile Native: Build iOS/Android
@@ -335,6 +336,85 @@ Crea `src/app/pages/Onboarding.tsx`:
 // src/app/contexts/AuthContext.tsx
 // Gestisce lo stato dell'utente loggato in tutta l'app
 ```
+
+---
+
+### 👤 FASE 1.6 — Gestione Account e Impostazioni (2-3 giorni)
+
+**Obiettivo**: L'utente può gestire il proprio account, vedere il profilo, cambiare impostazioni e fare logout
+
+> ⚠️ **Gap attuale**: `AuthContext` espone già `signOut()` e `updateProfile()` ma nessuna schermata li utilizza. L'avatar nell'header è un `<div>` statico non cliccabile. `ProtectedRoute` è definito in `routes.tsx` ma non è usato nelle route.
+
+#### Step 1.6.1 — Pagina Profilo/Impostazioni (`Settings.tsx`)
+
+Crea `src/app/pages/Settings.tsx` con queste sezioni:
+
+```
+┌─────────────────────────────────┐
+│ 👤 Profilo Utente               │
+│ ┌─────────────────────────────┐ │
+│ │ Avatar + Nome Squadra       │ │
+│ │ Email (read-only)           │ │
+│ │ [Modifica Nome Squadra]     │ │
+│ │ [Modifica Avatar]           │ │
+│ └─────────────────────────────┘ │
+│                                 │
+│ ⚙️ Impostazioni                 │
+│ ┌─────────────────────────────┐ │
+│ │ 🌙 Tema: Chiaro/Scuro       │ │
+│ │ 🔔 Notifiche (on/off)       │ │
+│ │ 🌐 Lingua (futuro)          │ │
+│ └─────────────────────────────┘ │
+│                                 │
+│ 📊 Statistiche Account          │
+│ ┌─────────────────────────────┐ │
+│ │ Membro dal: data            │ │
+│ │ Gare giocate: N             │ │
+│ │ Miglior piazzamento: N°     │ │
+│ └─────────────────────────────┘ │
+│                                 │
+│ ℹ️ Info App                      │
+│ ┌─────────────────────────────┐ │
+│ │ Versione: 1.0.0             │ │
+│ │ Regolamento punti           │ │
+│ └─────────────────────────────┘ │
+│                                 │
+│ [🚪 Logout]                     │
+│ [🗑️ Elimina Account]            │
+└─────────────────────────────────┘
+```
+
+#### Step 1.6.2 — Rendere l'avatar cliccabile nell'Header
+
+Modifica `Header.tsx`:
+- L'avatar diventa un `<button>` con `onClick={() => navigate('/impostazioni')}`
+- Mostra iniziale del nome squadra o emoji dell'avatar dal profilo reale (`useAuth().profile`)
+
+#### Step 1.6.3 — Aggiungere la route e proteggere le route
+
+Modifica `routes.tsx`:
+- Aggiungere route `/impostazioni` → `Settings.tsx`
+- **Wrappare tutte le route principali con `ProtectedRoute`** (attualmente il componente esiste ma non è usato!)
+
+```typescript
+// routes.tsx - stato desiderato
+children: [
+  { index: true, element: <ProtectedRoute><Home /></ProtectedRoute> },
+  { path: "impostazioni", element: <ProtectedRoute><Settings /></ProtectedRoute> },
+  // ... tutte le altre route protette
+]
+```
+
+#### Step 1.6.4 — Usare il profilo reale nell'Header
+
+Attualmente l'header usa `userStats` (dati mock da `league.ts`). Quando il profilo Supabase è disponibile, usare i dati reali:
+- Nome squadra dal profilo
+- Avatar emoji dal profilo
+- Notifiche reali (futuro)
+
+#### Step 1.6.5 — Spostare toggle tema nell'impostazioni
+
+Il toggle tema (🌙/☀️) può restare nell'header come shortcut, ma aggiungere anche un'opzione più visibile nella pagina impostazioni con etichetta chiara.
 
 ---
 
@@ -744,7 +824,8 @@ FantaFormula 1/
 │   │   │   ├── Standings.tsx          ✅ aggiornare con dati reali
 │   │   │   ├── Market.tsx             ✅ aggiornare con Supabase
 │   │   │   ├── Calendar.tsx           ✅ aggiornare con API Jolpica
-│   │   │   ├── Auth.tsx               🆕 login/registrazione
+│   │   │   ├── Auth.tsx               ✅ login/registrazione
+│   │   │   ├── Settings.tsx           🆕 profilo + impostazioni + logout
 │   │   │   ├── Onboarding.tsx         🆕 setup iniziale
 │   │   │   ├── League.tsx             🆕 gestione lega (inviti, impostazioni)
 │   │   │   └── LiveRace.tsx           🆕 (Fase 5) modalità gara live
@@ -797,6 +878,8 @@ FantaFormula 1/
 |------|---------------|------------|
 | 0 — Setup | 1-2 giorni | 🟡 Media |
 | 1 — Autenticazione | 3-4 giorni | 🟡 Media |
+| 1.5 — Tema Chiaro | 1-2 giorni | 🟢 Bassa |
+| 1.6 — Gestione Account | 2-3 giorni | 🟡 Media |
 | 2 — API F1 + Database | 4-5 giorni | 🟠 Alta |
 | 3 — Lega + Punti | 5-6 giorni | 🔴 Alta |
 | 4 — Mobile Native | 3-4 giorni | 🟡 Media |
