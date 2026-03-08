@@ -1,7 +1,36 @@
 # 🏎️ FantaFormula 1 — Piano di Sviluppo Completo
 
 > **Obiettivo**: App mobile multipiattaforma (iOS, Android, Web) per una lega privata di FantaF1, completamente gratuita.
-> **Stack attuale**: React + Vite + TypeScript + Tailwind + shadcn/ui
+> **Stack attuale**: React + Vite + TypeScript + Tailwind + shadcn/ui + **Ionic + Capacitor + Supabase**
+
+---
+
+## ✅ STATO DI AVANZAMENTO
+
+- [x] **FASE 0** - Preparazione: Configurazione Ionic + Capacitor + Supabase
+- [x] **FASE 1** - Autenticazione: Login/Registrazione con Supabase Auth
+- [ ] **FASE 2** - Database e API F1: Integrazione Jolpica API
+- [ ] **FASE 3** - Lega Privata: Sistema punteggi e leghe
+- [ ] **FASE 4** - Mobile Native: Build iOS/Android
+- [ ] **FASE 5** - Live Race Mode: Dati in tempo reale
+
+---
+
+## 📁 File Creati
+
+### Core
+- `src/main.tsx` - Entry point con Ionic + TanStack Query + AuthProvider
+- `src/lib/supabase.ts` - Client Supabase con tipi TypeScript
+- `capacitor.config.ts` - Configurazione Capacitor
+- `tsconfig.json` / `tsconfig.node.json` - Configurazione TypeScript
+- `.env.local` - Variabili ambiente Supabase
+
+### Autenticazione
+- `src/app/contexts/AuthContext.tsx` - Context per gestione stato utente
+- `src/app/pages/Auth.tsx` - Pagina Login/Registrazione
+
+### Database
+- `supabase/schema.sql` - Schema database completo (profiles, leagues, drivers, races, etc.)
 
 ---
 
