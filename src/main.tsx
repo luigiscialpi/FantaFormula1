@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { IonApp, setupIonicReact } from '@ionic/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider } from './app/contexts/AuthContext';
+import { ThemeProvider } from './app/contexts/ThemeContext';
 import App from './app/App';
 
 // Import Ionic CSS
@@ -40,13 +41,16 @@ if (container) {
     const root = createRoot(container);
     root.render(
         <React.StrictMode>
-            <IonApp>
-                <QueryClientProvider client={queryClient}>
-                    <AuthProvider>
-                        <App />
-                    </AuthProvider>
-                </QueryClientProvider>
-            </IonApp>
+            <ThemeProvider>
+                <IonApp>
+                    <QueryClientProvider client={queryClient}>
+                        <AuthProvider>
+                            <App />
+                        </AuthProvider>
+                    </QueryClientProvider>
+                </IonApp>
+            </ThemeProvider>
         </React.StrictMode>
     );
 }
+

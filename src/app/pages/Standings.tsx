@@ -25,7 +25,7 @@ function TrendIcon({ trend, value }: { trend: string; value: number }) {
         </span>
       </div>
     );
-  return <Minus size={12} style={{ color: "#555555" }} />;
+  return <Minus size={12} style={{ color: "var(--ff-text-tertiary)" }} />;
 }
 
 function RankBadge({ rank }: { rank: number }) {
@@ -34,7 +34,7 @@ function RankBadge({ rank }: { rank: number }) {
     2: { bg: "rgba(192,192,192,0.15)", color: "#C0C0C0" },
     3: { bg: "rgba(205,127,50,0.15)", color: "#CD7F32" },
   };
-  const style = colors[rank] || { bg: "rgba(255,255,255,0.05)", color: "#555555" };
+  const style = colors[rank] || { bg: "var(--ff-badge-bg)", color: "var(--ff-text-tertiary)" };
   return (
     <div
       className="flex items-center justify-center rounded-lg"
@@ -77,7 +77,7 @@ export default function Standings() {
   return (
     <div
       className="min-h-screen pb-24"
-      style={{ background: "#0A0A0A", fontFamily: "'Inter', sans-serif" }}
+      style={{ background: "var(--ff-bg)", fontFamily: "'Inter', sans-serif" }}
     >
       {/* User's position card */}
       <motion.div
@@ -86,15 +86,15 @@ export default function Standings() {
         transition={{ duration: 0.35 }}
         className="mx-4 mt-4 rounded-2xl p-4"
         style={{
-          background: "linear-gradient(135deg, #1A0000 0%, #130000 100%)",
-          border: "1px solid rgba(225,6,0,0.3)",
+          background: "var(--ff-hero-gradient)",
+          border: "1px solid var(--ff-surface-border-accent)",
         }}
       >
         <p
           style={{
             fontFamily: "'Barlow Condensed', sans-serif",
             fontSize: 11,
-            color: "#888888",
+            color: "var(--ff-text-secondary)",
             textTransform: "uppercase",
             letterSpacing: "0.1em",
             marginBottom: 6,
@@ -124,7 +124,7 @@ export default function Standings() {
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontSize: 18,
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "var(--ff-text-primary)",
                 }}
               >
                 {userStats.teamName}
@@ -133,7 +133,7 @@ export default function Standings() {
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 12,
-                  color: "#888888",
+                  color: "var(--ff-text-secondary)",
                 }}
               >
                 su {userStats.totalPlayers} squadre
@@ -146,7 +146,7 @@ export default function Standings() {
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 32,
                 fontWeight: 900,
-                color: "#FFFFFF",
+                color: "var(--ff-text-primary)",
                 lineHeight: 1,
               }}
             >
@@ -156,7 +156,7 @@ export default function Standings() {
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 11,
-                color: "#555555",
+                color: "var(--ff-text-tertiary)",
               }}
             >
               punti totali
@@ -165,14 +165,14 @@ export default function Standings() {
         </div>
         <div
           className="flex gap-4 mt-3 pt-3"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ borderTop: "1px solid var(--ff-divider)" }}
         >
           <div>
             <p
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 10,
-                color: "#555555",
+                color: "var(--ff-text-tertiary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
               }}
@@ -195,7 +195,7 @@ export default function Standings() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 10,
-                color: "#555555",
+                color: "var(--ff-text-tertiary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
               }}
@@ -218,7 +218,7 @@ export default function Standings() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 10,
-                color: "#555555",
+                color: "var(--ff-text-tertiary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
               }}
@@ -230,7 +230,7 @@ export default function Standings() {
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 16,
                 fontWeight: 700,
-                color: "#FFFFFF",
+                color: "var(--ff-text-primary)",
               }}
             >
               #{userStats.weeklyRank}
@@ -243,8 +243,8 @@ export default function Standings() {
       <div
         className="flex mx-4 mt-3 rounded-xl overflow-hidden"
         style={{
-          background: "#141414",
-          border: "1px solid rgba(255,255,255,0.06)",
+          background: "var(--ff-surface)",
+          border: "1px solid var(--ff-surface-border)",
           padding: 4,
           gap: 4,
         }}
@@ -261,7 +261,7 @@ export default function Standings() {
               letterSpacing: "0.04em",
               textTransform: "uppercase",
               background: activeTab === i ? "#E10600" : "transparent",
-              color: activeTab === i ? "white" : "#555555",
+              color: activeTab === i ? "white" : "var(--ff-text-tertiary)",
             }}
           >
             {tab}
@@ -284,10 +284,10 @@ export default function Standings() {
               transition={{ delay: idx * 0.04, duration: 0.25 }}
               className="rounded-xl overflow-hidden"
               style={{
-                background: player.isUser ? "rgba(225,6,0,0.06)" : "#141414",
+                background: player.isUser ? "rgba(225,6,0,0.06)" : "var(--ff-surface)",
                 border: player.isUser
                   ? "1.5px solid rgba(225,6,0,0.3)"
-                  : "1px solid rgba(255,255,255,0.05)",
+                  : "1px solid var(--ff-surface-border)",
               }}
             >
               {player.isUser && (
@@ -303,11 +303,11 @@ export default function Standings() {
                     height: 34,
                     background: player.isUser
                       ? "linear-gradient(135deg, #E10600, #8B0000)"
-                      : "rgba(255,255,255,0.06)",
+                      : "var(--ff-badge-bg)",
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontSize: 15,
                     fontWeight: 800,
-                    color: "white",
+                    color: player.isUser ? "white" : "var(--ff-text-primary)",
                     flexShrink: 0,
                   }}
                 >
@@ -321,7 +321,7 @@ export default function Standings() {
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 13,
                         fontWeight: player.isUser ? 700 : 600,
-                        color: player.isUser ? "#FFFFFF" : "#DDDDDD",
+                        color: "var(--ff-text-primary)",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         whiteSpace: "nowrap",
@@ -351,7 +351,7 @@ export default function Standings() {
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: 11,
-                      color: "#555555",
+                      color: "var(--ff-text-tertiary)",
                     }}
                   >
                     {player.name}
@@ -364,7 +364,7 @@ export default function Standings() {
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 20,
                       fontWeight: 900,
-                      color: player.isUser ? "#FFFFFF" : "#CCCCCC",
+                      color: "var(--ff-text-on-surface)",
                       lineHeight: 1,
                     }}
                   >
@@ -393,8 +393,8 @@ export default function Standings() {
               transition={{ delay: idx * 0.03, duration: 0.2 }}
               className="rounded-xl overflow-hidden"
               style={{
-                background: "#141414",
-                border: "1px solid rgba(255,255,255,0.05)",
+                background: "var(--ff-surface)",
+                border: "1px solid var(--ff-surface-border)",
               }}
             >
               <div className="h-0.5" style={{ background: driver.teamColor }} />
@@ -408,10 +408,10 @@ export default function Standings() {
                       driver.rank === 1
                         ? "#FFD700"
                         : driver.rank === 2
-                        ? "#C0C0C0"
-                        : driver.rank === 3
-                        ? "#CD7F32"
-                        : "#555555",
+                          ? "#C0C0C0"
+                          : driver.rank === 3
+                            ? "#CD7F32"
+                            : "var(--ff-text-tertiary)",
                     width: 24,
                     textAlign: "center",
                   }}
@@ -444,7 +444,7 @@ export default function Standings() {
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 13,
                         fontWeight: 600,
-                        color: "#FFFFFF",
+                        color: "var(--ff-text-primary)",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         whiteSpace: "nowrap",
@@ -472,7 +472,7 @@ export default function Standings() {
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 20,
                       fontWeight: 900,
-                      color: "#FFFFFF",
+                      color: "var(--ff-text-primary)",
                       lineHeight: 1,
                     }}
                   >
@@ -482,7 +482,7 @@ export default function Standings() {
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: 10,
-                      color: "#555555",
+                      color: "var(--ff-text-tertiary)",
                     }}
                   >
                     pts
@@ -520,8 +520,8 @@ export default function Standings() {
               transition={{ delay: i * 0.04, duration: 0.2 }}
               className="rounded-xl overflow-hidden"
               style={{
-                background: "#141414",
-                border: "1px solid rgba(255,255,255,0.05)",
+                background: "var(--ff-surface)",
+                border: "1px solid var(--ff-surface-border)",
               }}
             >
               <div className="h-0.5" style={{ background: c.color }} />
@@ -532,7 +532,7 @@ export default function Standings() {
                     fontSize: 14,
                     fontWeight: 800,
                     color:
-                      i === 0 ? "#FFD700" : i === 1 ? "#C0C0C0" : i === 2 ? "#CD7F32" : "#555555",
+                      i === 0 ? "#FFD700" : i === 1 ? "#C0C0C0" : i === 2 ? "#CD7F32" : "var(--ff-text-tertiary)",
                     width: 24,
                     textAlign: "center",
                   }}
@@ -549,7 +549,7 @@ export default function Standings() {
                     fontFamily: "'Inter', sans-serif",
                     fontSize: 14,
                     fontWeight: 600,
-                    color: "#FFFFFF",
+                    color: "var(--ff-text-primary)",
                   }}
                 >
                   {c.name}
@@ -560,7 +560,7 @@ export default function Standings() {
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 22,
                       fontWeight: 900,
-                      color: "#FFFFFF",
+                      color: "var(--ff-text-primary)",
                     }}
                   >
                     {c.points}
@@ -569,7 +569,7 @@ export default function Standings() {
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: 11,
-                      color: "#555555",
+                      color: "var(--ff-text-tertiary)",
                       marginLeft: 4,
                     }}
                   >

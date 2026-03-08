@@ -27,11 +27,11 @@ export function Layout() {
 	return (
 		<div
 			className="flex justify-center min-h-screen"
-			style={{ background: "#050505" }}
+			style={{ background: "var(--ff-bg-outer)" }}
 		>
 			<div
 				className="w-full max-w-md relative flex flex-col min-h-screen"
-				style={{ background: "#0A0A0A" }}
+				style={{ background: "var(--ff-bg)" }}
 			>
 				<Header title={title} />
 				<main className="flex-1 overflow-y-auto">

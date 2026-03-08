@@ -9,6 +9,7 @@
 
 - [x] **FASE 0** - Preparazione: Configurazione Ionic + Capacitor + Supabase
 - [x] **FASE 1** - Autenticazione: Login/Registrazione con Supabase Auth
+- [x] **FASE 1.5** - Tema Chiaro: Sistema di theming con CSS custom properties + toggle light/dark
 - [ ] **FASE 2** - Database e API F1: Integrazione Jolpica API
 - [ ] **FASE 3** - Lega Privata: Sistema punteggi e leghe
 - [ ] **FASE 4** - Mobile Native: Build iOS/Android
@@ -16,10 +17,10 @@
 
 ---
 
-## 📁 File Creati
+## 📁 File Creati/Modificati
 
 ### Core
-- `src/main.tsx` - Entry point con Ionic + TanStack Query + AuthProvider
+- `src/main.tsx` - Entry point con Ionic + TanStack Query + AuthProvider + **ThemeProvider**
 - `src/lib/supabase.ts` - Client Supabase con tipi TypeScript
 - `capacitor.config.ts` - Configurazione Capacitor
 - `tsconfig.json` / `tsconfig.node.json` - Configurazione TypeScript
@@ -28,6 +29,19 @@
 ### Autenticazione
 - `src/app/contexts/AuthContext.tsx` - Context per gestione stato utente
 - `src/app/pages/Auth.tsx` - Pagina Login/Registrazione
+
+### Tema (Fase 1.5)
+- `src/styles/theme.css` - **Aggiornato**: 45+ CSS custom properties `--ff-*` per light/dark
+- `src/app/contexts/ThemeContext.tsx` - **Nuovo**: Context React per toggle tema + persistenza localStorage
+- `src/app/components/Layout.tsx` - **Aggiornato**: usa CSS vars per sfondi
+- `src/app/components/Header.tsx` - **Aggiornato**: usa CSS vars + pulsante toggle 🌙/☀️
+- `src/app/components/BottomNav.tsx` - **Aggiornato**: usa CSS vars per colori navigazione
+- `src/app/pages/Home.tsx` - **Aggiornato**: ~30 colori hardcoded → CSS vars
+- `src/app/pages/MyTeam.tsx` - **Aggiornato**: cards, tabs, budget → CSS vars
+- `src/app/pages/Standings.tsx` - **Aggiornato**: rankings, tabs → CSS vars
+- `src/app/pages/Market.tsx` - **Aggiornato**: search, filtri, cards → CSS vars
+- `src/app/pages/Calendar.tsx` - **Aggiornato**: race cards, dettagli → CSS vars
+- `docs/PIANO_TEMA_CHIARO.md` - **Nuovo**: Piano dettagliato del tema chiaro
 
 ### Database
 - `supabase/schema.sql` - Schema database completo (profiles, leagues, drivers, races, etc.)
@@ -713,7 +727,8 @@ FantaFormula 1/
 │   │   │   ├── LiveRaceWidget.tsx     🆕 widget live gara
 │   │   │   └── PointsBreakdown.tsx    🆕 dettaglio punti per pilota
 │   │   ├── contexts/
-│   │   │   ├── AuthContext.tsx        🆕 stato autenticazione
+│   │   │   ├── AuthContext.tsx        ✅ stato autenticazione
+│   │   │   ├── ThemeContext.tsx       ✅ toggle tema light/dark + localStorage
 │   │   │   └── LeagueContext.tsx      🆕 stato lega corrente
 │   │   ├── data/
 │   │   │   ├── drivers.ts             ✅ da tenere come fallback
@@ -739,7 +754,7 @@ FantaFormula 1/
 │   │   │   └── supabase.ts            🆕 client Supabase
 │   │   └── App.tsx                    ✅ da aggiornare con auth guard
 │   └── styles/
-│       └── ...                        ✅ invariati
+│       └── theme.css                  ✅ CSS custom properties --ff-* (light + dark)
 ├── supabase/
 │   └── functions/
 │       └── calculate-race-points/     🆕 Edge Function calcolo punti

@@ -1,5 +1,6 @@
-import { Bell, Settings } from "lucide-react";
+import { Bell, Sun, Moon } from "lucide-react";
 import { userStats } from "../data/league";
+import { useTheme } from "../contexts/ThemeContext";
 
 interface HeaderProps {
   title?: string;
@@ -8,13 +9,15 @@ interface HeaderProps {
 }
 
 export function Header({ title }: HeaderProps) {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <header
       className="sticky top-0 z-40 flex items-center justify-between px-4 py-3"
       style={{
-        background: "rgba(10,10,10,0.92)",
+        background: "var(--ff-header-bg)",
         backdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(255,255,255,0.05)",
+        borderBottom: "1px solid var(--ff-header-border)",
       }}
     >
       {/* Logo / Title */}
@@ -25,7 +28,7 @@ export function Header({ title }: HeaderProps) {
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 20,
               fontWeight: 800,
-              color: "#FFFFFF",
+              color: "var(--ff-text-primary)",
               letterSpacing: "0.02em",
               textTransform: "uppercase",
             }}
@@ -49,7 +52,7 @@ export function Header({ title }: HeaderProps) {
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 20,
                 fontWeight: 900,
-                color: "#FFFFFF",
+                color: "var(--ff-text-primary)",
                 letterSpacing: "0.05em",
                 textTransform: "uppercase",
               }}
@@ -63,8 +66,20 @@ export function Header({ title }: HeaderProps) {
       {/* Right actions */}
       <div className="flex items-center gap-3">
         <button
+          onClick={toggleTheme}
+          className="flex items-center justify-center"
+          style={{ color: "var(--ff-text-secondary)" }}
+          aria-label="Cambia tema"
+        >
+          {theme === "light" ? (
+            <Moon size={18} strokeWidth={1.8} />
+          ) : (
+            <Sun size={18} strokeWidth={1.8} />
+          )}
+        </button>
+        <button
           className="relative"
-          style={{ color: "#888888" }}
+          style={{ color: "var(--ff-text-secondary)" }}
         >
           <Bell size={20} strokeWidth={1.8} />
           <span

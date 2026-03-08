@@ -33,14 +33,13 @@ function DriverSlot({
         layout
         className="rounded-xl overflow-hidden cursor-pointer"
         style={{
-          background: "#141414",
-          border: `1.5px solid ${
-            driver.isCaptain
+          background: "var(--ff-surface)",
+          border: `1.5px solid ${driver.isCaptain
               ? "rgba(225,6,0,0.5)"
               : driver.isViceCaptain
-              ? "rgba(255,140,0,0.5)"
-              : "rgba(255,255,255,0.07)"
-          }`,
+                ? "rgba(255,140,0,0.5)"
+                : "var(--ff-surface-border)"
+            }`,
         }}
         onClick={() => setShowActions(!showActions)}
       >
@@ -79,7 +78,7 @@ function DriverSlot({
                     fontFamily: "'Inter', sans-serif",
                     fontSize: 13,
                     fontWeight: 600,
-                    color: "#FFFFFF",
+                    color: "var(--ff-text-primary)",
                   }}
                 >
                   {driver.name}
@@ -143,7 +142,7 @@ function DriverSlot({
                   style={{
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontSize: 10,
-                    color: "#444444",
+                    color: "var(--ff-text-tertiary)",
                   }}
                 >
                   {position}
@@ -158,7 +157,7 @@ function DriverSlot({
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 20,
                 fontWeight: 800,
-                color: "#FFFFFF",
+                color: "var(--ff-text-primary)",
                 lineHeight: 1,
               }}
             >
@@ -168,7 +167,7 @@ function DriverSlot({
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 10,
-                color: "#555555",
+                color: "var(--ff-text-tertiary)",
               }}
             >
               punti
@@ -177,7 +176,7 @@ function DriverSlot({
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 12,
-                color: "#888888",
+                color: "var(--ff-text-secondary)",
               }}
             >
               €{driver.price}M
@@ -193,7 +192,7 @@ function DriverSlot({
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              style={{ overflow: "hidden", borderTop: "1px solid rgba(255,255,255,0.06)" }}
+              style={{ overflow: "hidden", borderTop: "1px solid var(--ff-divider)" }}
             >
               <div className="flex gap-2 p-2">
                 <button
@@ -211,7 +210,7 @@ function DriverSlot({
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontSize: 12,
                     fontWeight: 700,
-                    color: driver.isCaptain ? "#E10600" : "#888888",
+                    color: driver.isCaptain ? "#E10600" : "var(--ff-text-secondary)",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                   }}
@@ -234,7 +233,7 @@ function DriverSlot({
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontSize: 12,
                     fontWeight: 700,
-                    color: driver.isViceCaptain ? "#FF8C00" : "#888888",
+                    color: driver.isViceCaptain ? "#FF8C00" : "var(--ff-text-secondary)",
                     letterSpacing: "0.05em",
                     textTransform: "uppercase",
                   }}
@@ -289,14 +288,14 @@ export default function MyTeam() {
   return (
     <div
       className="min-h-screen pb-24"
-      style={{ background: "#0A0A0A", fontFamily: "'Inter', sans-serif" }}
+      style={{ background: "var(--ff-bg)", fontFamily: "'Inter', sans-serif" }}
     >
       {/* Budget Bar */}
       <div
         className="mx-4 mt-4 rounded-2xl p-4"
         style={{
-          background: "linear-gradient(135deg, #141414, #1A1A1A)",
-          border: "1px solid rgba(255,255,255,0.07)",
+          background: "var(--ff-surface)",
+          border: "1px solid var(--ff-surface-border)",
         }}
       >
         <div className="flex items-center justify-between mb-2">
@@ -306,7 +305,7 @@ export default function MyTeam() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 13,
-                color: "#888888",
+                color: "var(--ff-text-secondary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
               }}
@@ -327,7 +326,7 @@ export default function MyTeam() {
         </div>
         <div
           className="rounded-full overflow-hidden"
-          style={{ height: 6, background: "rgba(255,255,255,0.08)" }}
+          style={{ height: 6, background: "var(--ff-bar-inactive)" }}
         >
           <div
             className="h-full rounded-full"
@@ -338,17 +337,17 @@ export default function MyTeam() {
           />
         </div>
         <div className="flex justify-between mt-1">
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "#444444" }}>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "var(--ff-text-tertiary)" }}>
             Usato: €{(userStats.totalBudget - userStats.budget).toFixed(1)}M
           </span>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "#444444" }}>
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, color: "var(--ff-text-tertiary)" }}>
             Totale: €{userStats.totalBudget}M
           </span>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex mx-4 mt-3 rounded-xl overflow-hidden" style={{ background: "#141414", border: "1px solid rgba(255,255,255,0.06)", padding: 4, gap: 4 }}>
+      <div className="flex mx-4 mt-3 rounded-xl overflow-hidden" style={{ background: "var(--ff-surface)", border: "1px solid var(--ff-surface-border)", padding: 4, gap: 4 }}>
         {tabs.map((tab, i) => (
           <button
             key={tab}
@@ -361,7 +360,7 @@ export default function MyTeam() {
               letterSpacing: "0.04em",
               textTransform: "uppercase",
               background: activeTab === i ? "#E10600" : "transparent",
-              color: activeTab === i ? "white" : "#555555",
+              color: activeTab === i ? "white" : "var(--ff-text-tertiary)",
             }}
           >
             {tab}
@@ -385,15 +384,15 @@ export default function MyTeam() {
                 <div className="w-3 h-3 rounded flex items-center justify-center" style={{ background: "#E10600" }}>
                   <span style={{ fontSize: 7, fontWeight: 900, color: "white", fontFamily: "'Barlow Condensed', sans-serif" }}>C</span>
                 </div>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#666666" }}>Capitano (x2)</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "var(--ff-text-secondary)" }}>Capitano (x2)</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="w-3 h-3 rounded flex items-center justify-center" style={{ background: "#FF8C00" }}>
                   <span style={{ fontSize: 7, fontWeight: 900, color: "white", fontFamily: "'Barlow Condensed', sans-serif" }}>VC</span>
                 </div>
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#666666" }}>Vice (x1.5)</span>
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "var(--ff-text-secondary)" }}>Vice (x1.5)</span>
               </div>
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#444444" }}>Tocca per cambiare</span>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "var(--ff-text-tertiary)" }}>Tocca per cambiare</span>
             </div>
 
             {/* Drivers */}
@@ -411,8 +410,8 @@ export default function MyTeam() {
             <div
               className="rounded-xl overflow-hidden"
               style={{
-                background: "#141414",
-                border: "1px solid rgba(255,255,255,0.07)",
+                background: "var(--ff-surface)",
+                border: "1px solid var(--ff-surface-border)",
               }}
             >
               <div
@@ -438,7 +437,7 @@ export default function MyTeam() {
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 13,
                         fontWeight: 600,
-                        color: "#FFFFFF",
+                        color: "var(--ff-text-primary)",
                       }}
                     >
                       {myConstructor.name}
@@ -447,7 +446,7 @@ export default function MyTeam() {
                       style={{
                         fontFamily: "'Barlow Condensed', sans-serif",
                         fontSize: 11,
-                        color: "#555555",
+                        color: "var(--ff-text-tertiary)",
                         textTransform: "uppercase",
                         letterSpacing: "0.05em",
                       }}
@@ -462,7 +461,7 @@ export default function MyTeam() {
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 20,
                       fontWeight: 800,
-                      color: "#FFFFFF",
+                      color: "var(--ff-text-primary)",
                       lineHeight: 1,
                     }}
                   >
@@ -472,7 +471,7 @@ export default function MyTeam() {
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: 10,
-                      color: "#555555",
+                      color: "var(--ff-text-tertiary)",
                     }}
                   >
                     punti
@@ -481,7 +480,7 @@ export default function MyTeam() {
                     style={{
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 12,
-                      color: "#888888",
+                      color: "var(--ff-text-secondary)",
                     }}
                   >
                     €{myConstructor.price}M
@@ -554,7 +553,7 @@ export default function MyTeam() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 13,
-                color: "#888888",
+                color: "var(--ff-text-secondary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
                 marginBottom: 8,
@@ -577,12 +576,11 @@ export default function MyTeam() {
                     background:
                       selectedForTransfer === driver.id
                         ? "rgba(225,6,0,0.12)"
-                        : "#141414",
-                    border: `1px solid ${
-                      selectedForTransfer === driver.id
+                        : "var(--ff-surface)",
+                    border: `1px solid ${selectedForTransfer === driver.id
                         ? "rgba(225,6,0,0.5)"
-                        : "rgba(255,255,255,0.06)"
-                    }`,
+                        : "var(--ff-surface-border)"
+                      }`,
                   }}
                 >
                   <div className="flex items-center gap-3">
@@ -598,7 +596,7 @@ export default function MyTeam() {
                         color:
                           selectedForTransfer === driver.id
                             ? "#E10600"
-                            : "#FFFFFF",
+                            : "var(--ff-text-primary)",
                       }}
                     >
                       {driver.name}
@@ -609,7 +607,7 @@ export default function MyTeam() {
                       style={{
                         fontFamily: "'Barlow Condensed', sans-serif",
                         fontSize: 14,
-                        color: "#888888",
+                        color: "var(--ff-text-secondary)",
                       }}
                     >
                       €{driver.price}M
@@ -617,7 +615,7 @@ export default function MyTeam() {
                     {selectedForTransfer === driver.id ? (
                       <X size={16} style={{ color: "#E10600" }} />
                     ) : (
-                      <ChevronRight size={16} style={{ color: "#333333" }} />
+                      <ChevronRight size={16} style={{ color: "var(--ff-text-tertiary)" }} />
                     )}
                   </div>
                 </button>
@@ -634,7 +632,7 @@ export default function MyTeam() {
                   style={{
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontSize: 13,
-                    color: "#888888",
+                    color: "var(--ff-text-secondary)",
                     textTransform: "uppercase",
                     letterSpacing: "0.06em",
                     marginBottom: 8,
@@ -655,8 +653,8 @@ export default function MyTeam() {
                         key={driver.id}
                         className="rounded-xl flex items-center justify-between p-3"
                         style={{
-                          background: "#141414",
-                          border: "1px solid rgba(255,255,255,0.06)",
+                          background: "var(--ff-surface)",
+                          border: "1px solid var(--ff-surface-border)",
                         }}
                       >
                         <div className="flex items-center gap-3">
@@ -670,7 +668,7 @@ export default function MyTeam() {
                                 fontFamily: "'Inter', sans-serif",
                                 fontSize: 13,
                                 fontWeight: 600,
-                                color: "#FFFFFF",
+                                color: "var(--ff-text-primary)",
                               }}
                             >
                               {driver.name}
@@ -693,7 +691,7 @@ export default function MyTeam() {
                                 fontFamily: "'Barlow Condensed', sans-serif",
                                 fontSize: 14,
                                 fontWeight: 700,
-                                color: "#FFFFFF",
+                                color: "var(--ff-text-primary)",
                               }}
                             >
                               {driver.points} pts

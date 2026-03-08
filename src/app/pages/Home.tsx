@@ -21,12 +21,12 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
         style={{
           width: 48,
           height: 48,
-          background: "rgba(255,255,255,0.06)",
-          border: "1px solid rgba(255,255,255,0.1)",
+          background: "var(--ff-countdown-bg)",
+          border: "1px solid var(--ff-countdown-border)",
           fontFamily: "'Barlow Condensed', sans-serif",
           fontSize: 24,
           fontWeight: 800,
-          color: "#FFFFFF",
+          color: "var(--ff-countdown-text)",
         }}
       >
         {String(value).padStart(2, "0")}
@@ -35,7 +35,7 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
         style={{
           fontFamily: "'Barlow Condensed', sans-serif",
           fontSize: 10,
-          color: "#555555",
+          color: "var(--ff-text-tertiary)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           marginTop: 4,
@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <div
       className="min-h-screen pb-24"
-      style={{ background: "#0A0A0A", fontFamily: "'Inter', sans-serif" }}
+      style={{ background: "var(--ff-bg)", fontFamily: "'Inter', sans-serif" }}
     >
       {/* Hero: Next Race */}
       <motion.div
@@ -63,22 +63,23 @@ export default function Home() {
         transition={{ duration: 0.4 }}
         className="relative overflow-hidden mx-4 mt-4 rounded-2xl"
         style={{
-          background:
-            "linear-gradient(135deg, #1A0000 0%, #0D0D0D 40%, #001A1A 100%)",
-          border: "1px solid rgba(225,6,0,0.25)",
+          background: "var(--ff-hero-gradient)",
+          border: "1px solid var(--ff-hero-border)",
         }}
       >
         {/* BG decoration */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0"
           style={{
+            opacity: "var(--ff-hero-pattern-opacity)",
             backgroundImage:
               "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(225,6,0,0.15) 10px, rgba(225,6,0,0.15) 11px)",
           }}
         />
         <div
-          className="absolute top-0 right-0 w-48 h-48 opacity-5 rounded-full"
+          className="absolute top-0 right-0 w-48 h-48 rounded-full"
           style={{
+            opacity: "var(--ff-hero-glow-opacity)",
             background: "#E10600",
             filter: "blur(40px)",
             transform: "translate(30%, -30%)",
@@ -139,7 +140,7 @@ export default function Home() {
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontSize: 13,
-                  color: "#888888",
+                  color: "var(--ff-text-secondary)",
                   letterSpacing: "0.05em",
                   textTransform: "uppercase",
                   marginBottom: 2,
@@ -152,7 +153,7 @@ export default function Home() {
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontSize: 26,
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "var(--ff-text-primary)",
                   lineHeight: 1.1,
                   letterSpacing: "0.01em",
                   textTransform: "uppercase",
@@ -164,7 +165,7 @@ export default function Home() {
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 12,
-                  color: "#666666",
+                  color: "var(--ff-text-secondary)",
                   marginTop: 4,
                 }}
               >
@@ -181,7 +182,7 @@ export default function Home() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 24,
-                color: "#333333",
+                color: "var(--ff-colon-color)",
                 fontWeight: 800,
                 marginBottom: 12,
               }}
@@ -193,7 +194,7 @@ export default function Home() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 24,
-                color: "#333333",
+                color: "var(--ff-colon-color)",
                 fontWeight: 800,
                 marginBottom: 12,
               }}
@@ -206,14 +207,14 @@ export default function Home() {
           {/* Race date info */}
           <div
             className="flex gap-4 pt-4"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+            style={{ borderTop: "1px solid var(--ff-divider)" }}
           >
             <div>
               <p
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontSize: 10,
-                  color: "#555555",
+                  color: "var(--ff-text-tertiary)",
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                 }}
@@ -224,7 +225,7 @@ export default function Home() {
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 13,
-                  color: "#CCCCCC",
+                  color: "var(--ff-text-on-surface)",
                   fontWeight: 500,
                 }}
               >
@@ -236,7 +237,7 @@ export default function Home() {
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontSize: 10,
-                  color: "#555555",
+                  color: "var(--ff-text-tertiary)",
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                 }}
@@ -247,7 +248,7 @@ export default function Home() {
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 13,
-                  color: "#CCCCCC",
+                  color: "var(--ff-text-on-surface)",
                   fontWeight: 500,
                 }}
               >
@@ -259,7 +260,7 @@ export default function Home() {
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontSize: 10,
-                  color: "#555555",
+                  color: "var(--ff-text-tertiary)",
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                 }}
@@ -299,7 +300,7 @@ export default function Home() {
             label: "Punti Totali",
             value: userStats.totalPoints,
             sub: "stagione",
-            color: "#FFFFFF",
+            color: "var(--ff-points-value)",
           },
           {
             label: "Ultimo GP",
@@ -312,8 +313,8 @@ export default function Home() {
             key={stat.label}
             className="rounded-xl p-4 flex flex-col items-center"
             style={{
-              background: "#141414",
-              border: "1px solid rgba(255,255,255,0.06)",
+              background: "var(--ff-surface)",
+              border: "1px solid var(--ff-surface-border)",
             }}
           >
             <span
@@ -331,7 +332,7 @@ export default function Home() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 10,
-                color: "#555555",
+                color: "var(--ff-text-tertiary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
                 marginTop: 4,
@@ -344,7 +345,7 @@ export default function Home() {
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 10,
-                color: "#444444",
+                color: "var(--ff-text-tertiary)",
                 textAlign: "center",
               }}
             >
@@ -361,8 +362,8 @@ export default function Home() {
         transition={{ duration: 0.4, delay: 0.15 }}
         className="mx-4 mt-3 rounded-2xl p-4"
         style={{
-          background: "#141414",
-          border: "1px solid rgba(255,255,255,0.06)",
+          background: "var(--ff-surface)",
+          border: "1px solid var(--ff-surface-border)",
         }}
       >
         <div className="flex items-center justify-between mb-4">
@@ -371,7 +372,7 @@ export default function Home() {
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 14,
               fontWeight: 700,
-              color: "#FFFFFF",
+              color: "var(--ff-text-primary)",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
             }}
@@ -392,10 +393,10 @@ export default function Home() {
                   style={{
                     height: `${isNext ? 10 : height}%`,
                     background: isNext
-                      ? "rgba(255,255,255,0.08)"
+                      ? "var(--ff-bar-inactive)"
                       : i === weeklyPointsHistory.length - 2
-                      ? "#E10600"
-                      : "rgba(225,6,0,0.3)",
+                        ? "#E10600"
+                        : "var(--ff-bar-active)",
                     minHeight: 8,
                     transition: "height 0.5s ease",
                   }}
@@ -407,7 +408,7 @@ export default function Home() {
                         fontFamily: "'Barlow Condensed', sans-serif",
                         fontSize: 11,
                         fontWeight: 700,
-                        color: i === weeklyPointsHistory.length - 2 ? "#E10600" : "#888888",
+                        color: i === weeklyPointsHistory.length - 2 ? "#E10600" : "var(--ff-text-secondary)",
                         whiteSpace: "nowrap",
                       }}
                     >
@@ -419,7 +420,7 @@ export default function Home() {
                   style={{
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontSize: 10,
-                    color: isNext ? "#333333" : "#666666",
+                    color: isNext ? "var(--ff-text-tertiary)" : "var(--ff-text-secondary)",
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                   }}
@@ -445,7 +446,7 @@ export default function Home() {
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 16,
               fontWeight: 800,
-              color: "#FFFFFF",
+              color: "var(--ff-text-primary)",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
             }}
@@ -472,8 +473,8 @@ export default function Home() {
               key={driver.id}
               className="flex items-center justify-between px-4 py-3 rounded-xl"
               style={{
-                background: "#141414",
-                border: `1px solid ${driver.isCaptain ? "rgba(225,6,0,0.3)" : "rgba(255,255,255,0.05)"}`,
+                background: "var(--ff-surface)",
+                border: `1px solid ${driver.isCaptain ? "var(--ff-surface-border-accent)" : "var(--ff-surface-border)"}`,
               }}
             >
               <div className="flex items-center gap-3">
@@ -499,7 +500,7 @@ export default function Home() {
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 13,
                         fontWeight: 600,
-                        color: "#FFFFFF",
+                        color: "var(--ff-text-primary)",
                       }}
                     >
                       {driver.name}
@@ -551,7 +552,7 @@ export default function Home() {
                     fontFamily: "'Barlow Condensed', sans-serif",
                     fontSize: 18,
                     fontWeight: 800,
-                    color: "#FFFFFF",
+                    color: "var(--ff-text-primary)",
                   }}
                 >
                   {driver.isCaptain ? driver.lastRacePoints * 2 : driver.lastRacePoints}
@@ -560,7 +561,7 @@ export default function Home() {
                   style={{
                     fontFamily: "'Inter', sans-serif",
                     fontSize: 10,
-                    color: "#555555",
+                    color: "var(--ff-text-tertiary)",
                   }}
                 >
                   ultimo GP
@@ -584,7 +585,7 @@ export default function Home() {
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 16,
               fontWeight: 800,
-              color: "#FFFFFF",
+              color: "var(--ff-text-primary)",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
             }}
@@ -614,8 +615,8 @@ export default function Home() {
                 key={race.id}
                 className="flex items-center justify-between px-4 py-3 rounded-xl"
                 style={{
-                  background: "#141414",
-                  border: "1px solid rgba(255,255,255,0.05)",
+                  background: "var(--ff-surface)",
+                  border: "1px solid var(--ff-surface-border)",
                 }}
               >
                 <div className="flex items-center gap-3">
@@ -626,7 +627,7 @@ export default function Home() {
                         fontFamily: "'Barlow Condensed', sans-serif",
                         fontSize: 14,
                         fontWeight: 700,
-                        color: "#FFFFFF",
+                        color: "var(--ff-text-primary)",
                         textTransform: "uppercase",
                         letterSpacing: "0.02em",
                       }}
@@ -637,7 +638,7 @@ export default function Home() {
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 11,
-                        color: "#555555",
+                        color: "var(--ff-text-tertiary)",
                       }}
                     >
                       {race.winner} —{" "}
@@ -662,7 +663,7 @@ export default function Home() {
                     style={{
                       fontFamily: "'Inter', sans-serif",
                       fontSize: 10,
-                      color: "#555555",
+                      color: "var(--ff-text-tertiary)",
                     }}
                   >
                     i tuoi punti

@@ -21,8 +21,8 @@ export function BottomNav() {
       <div
         className="w-full max-w-md"
         style={{
-          background: "linear-gradient(to top, #0A0A0A, #0A0A0A)",
-          borderTop: "1px solid rgba(255,255,255,0.06)",
+          background: "var(--ff-nav-bg)",
+          borderTop: "1px solid var(--ff-nav-border)",
         }}
       >
         <div className="flex items-center justify-around px-2 py-2 pb-safe">
@@ -35,9 +35,9 @@ export function BottomNav() {
                 onClick={() => navigate(item.path)}
                 className="flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-all duration-200"
                 style={{
-                  color: isActive ? "#E10600" : "#555555",
+                  color: isActive ? "#E10600" : "var(--ff-nav-inactive)",
                   background: isActive
-                    ? "rgba(225,6,0,0.08)"
+                    ? "var(--ff-nav-active-bg)"
                     : "transparent",
                   minWidth: 56,
                 }}

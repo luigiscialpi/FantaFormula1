@@ -39,6 +39,51 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* FantaF1 Theme Tokens — Light */
+  --ff-bg: #FFFFFF;
+  --ff-bg-outer: #F0F0F2;
+  --ff-surface: #F5F5F7;
+  --ff-surface-hover: #EDEDF0;
+  --ff-surface-border: rgba(0, 0, 0, 0.08);
+  --ff-surface-border-accent: rgba(225, 6, 0, 0.15);
+  --ff-text-primary: #1A1A1A;
+  --ff-text-secondary: #666666;
+  --ff-text-tertiary: #999999;
+  --ff-text-on-surface: #333333;
+  --ff-header-bg: rgba(255, 255, 255, 0.92);
+  --ff-header-border: rgba(0, 0, 0, 0.06);
+  --ff-nav-bg: #FFFFFF;
+  --ff-nav-border: rgba(0, 0, 0, 0.08);
+  --ff-nav-inactive: #999999;
+  --ff-nav-active-bg: rgba(225, 6, 0, 0.06);
+  --ff-hero-gradient: linear-gradient(135deg, #FFF5F5 0%, #FFFFFF 40%, #F0FAFA 100%);
+  --ff-hero-border: rgba(225, 6, 0, 0.15);
+  --ff-hero-pattern-opacity: 0.04;
+  --ff-hero-glow-opacity: 0.08;
+  --ff-countdown-bg: rgba(0, 0, 0, 0.04);
+  --ff-countdown-border: rgba(0, 0, 0, 0.08);
+  --ff-countdown-text: #1A1A1A;
+  --ff-divider: rgba(0, 0, 0, 0.06);
+  --ff-bar-inactive: rgba(0, 0, 0, 0.06);
+  --ff-bar-active: rgba(225, 6, 0, 0.25);
+  --ff-separator: rgba(0, 0, 0, 0.04);
+  --ff-badge-bg: rgba(0, 0, 0, 0.05);
+  --ff-points-value: #1A1A1A;
+  --ff-colon-color: #CCCCCC;
+  --ff-search-bg: #F0F0F2;
+  --ff-search-border: rgba(0, 0, 0, 0.08);
+  --ff-search-text: #1A1A1A;
+  --ff-search-placeholder: #999999;
+  --ff-chip-bg: rgba(0, 0, 0, 0.05);
+  --ff-chip-active-bg: #E10600;
+  --ff-chip-text: #666666;
+  --ff-chip-active-text: #FFFFFF;
+  --ff-modal-bg: #FFFFFF;
+  --ff-modal-overlay: rgba(0, 0, 0, 0.5);
+  --ff-tab-active-bg: rgba(225, 6, 0, 0.1);
+  --ff-tab-inactive-bg: transparent;
+  --ff-status-bg: rgba(0, 0, 0, 0.04);
 }
 
 .dark {
@@ -76,6 +121,51 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* FantaF1 Theme Tokens — Dark */
+  --ff-bg: #0A0A0A;
+  --ff-bg-outer: #050505;
+  --ff-surface: #141414;
+  --ff-surface-hover: #1C1C1C;
+  --ff-surface-border: rgba(255, 255, 255, 0.06);
+  --ff-surface-border-accent: rgba(225, 6, 0, 0.3);
+  --ff-text-primary: #FFFFFF;
+  --ff-text-secondary: #888888;
+  --ff-text-tertiary: #555555;
+  --ff-text-on-surface: #CCCCCC;
+  --ff-header-bg: rgba(10, 10, 10, 0.92);
+  --ff-header-border: rgba(255, 255, 255, 0.05);
+  --ff-nav-bg: #0A0A0A;
+  --ff-nav-border: rgba(255, 255, 255, 0.06);
+  --ff-nav-inactive: #555555;
+  --ff-nav-active-bg: rgba(225, 6, 0, 0.08);
+  --ff-hero-gradient: linear-gradient(135deg, #1A0000 0%, #0D0D0D 40%, #001A1A 100%);
+  --ff-hero-border: rgba(225, 6, 0, 0.25);
+  --ff-hero-pattern-opacity: 0.10;
+  --ff-hero-glow-opacity: 0.05;
+  --ff-countdown-bg: rgba(255, 255, 255, 0.06);
+  --ff-countdown-border: rgba(255, 255, 255, 0.1);
+  --ff-countdown-text: #FFFFFF;
+  --ff-divider: rgba(255, 255, 255, 0.06);
+  --ff-bar-inactive: rgba(255, 255, 255, 0.08);
+  --ff-bar-active: rgba(225, 6, 0, 0.3);
+  --ff-separator: rgba(255, 255, 255, 0.06);
+  --ff-badge-bg: rgba(255, 255, 255, 0.06);
+  --ff-points-value: #FFFFFF;
+  --ff-colon-color: #333333;
+  --ff-search-bg: #141414;
+  --ff-search-border: rgba(255, 255, 255, 0.06);
+  --ff-search-text: #FFFFFF;
+  --ff-search-placeholder: #555555;
+  --ff-chip-bg: rgba(255, 255, 255, 0.06);
+  --ff-chip-active-bg: #E10600;
+  --ff-chip-text: #888888;
+  --ff-chip-active-text: #FFFFFF;
+  --ff-modal-bg: #1A1A1A;
+  --ff-modal-overlay: rgba(0, 0, 0, 0.7);
+  --ff-tab-active-bg: rgba(225, 6, 0, 0.15);
+  --ff-tab-inactive-bg: transparent;
+  --ff-status-bg: rgba(255, 255, 255, 0.06);
 }
 
 @theme inline {

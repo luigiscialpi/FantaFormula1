@@ -9,21 +9,21 @@ export default function Calendar() {
   return (
     <div
       className="min-h-screen pb-24"
-      style={{ background: "#0A0A0A", fontFamily: "'Inter', sans-serif" }}
+      style={{ background: "var(--ff-bg)", fontFamily: "'Inter', sans-serif" }}
     >
       {/* Header Stats */}
       <div className="grid grid-cols-3 gap-3 mx-4 mt-4">
         {[
-          { label: "Gare Totali", value: 25, color: "#FFFFFF" },
+          { label: "Gare Totali", value: 25, color: "var(--ff-text-primary)" },
           { label: "Completate", value: 3, color: "#4CAF50" },
-          { label: "Rimanenti", value: 22, color: "#888888" },
+          { label: "Rimanenti", value: 22, color: "var(--ff-text-secondary)" },
         ].map((s) => (
           <div
             key={s.label}
             className="rounded-xl py-3 px-2 flex flex-col items-center"
             style={{
-              background: "#141414",
-              border: "1px solid rgba(255,255,255,0.06)",
+              background: "var(--ff-surface)",
+              border: "1px solid var(--ff-surface-border)",
             }}
           >
             <span
@@ -41,7 +41,7 @@ export default function Calendar() {
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
                 fontSize: 10,
-                color: "#555555",
+                color: "var(--ff-text-tertiary)",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
                 textAlign: "center",
@@ -72,15 +72,14 @@ export default function Calendar() {
                 background: isNext
                   ? "rgba(225,6,0,0.06)"
                   : isCompleted
-                  ? "#111111"
-                  : "#141414",
-                border: `1px solid ${
-                  isNext
+                    ? "var(--ff-surface)"
+                    : "var(--ff-surface)",
+                border: `1px solid ${isNext
                     ? "rgba(225,6,0,0.35)"
                     : isCompleted
-                    ? "rgba(255,255,255,0.04)"
-                    : "rgba(255,255,255,0.06)"
-                }`,
+                      ? "var(--ff-surface-border)"
+                      : "var(--ff-surface-border)"
+                  }`,
                 opacity: isCompleted ? 0.8 : 1,
               }}
             >
@@ -110,15 +109,14 @@ export default function Calendar() {
                       background: isCompleted
                         ? "rgba(76,175,80,0.12)"
                         : isNext
-                        ? "rgba(225,6,0,0.15)"
-                        : "rgba(255,255,255,0.05)",
-                      border: `1px solid ${
-                        isCompleted
+                          ? "rgba(225,6,0,0.15)"
+                          : "var(--ff-badge-bg)",
+                      border: `1px solid ${isCompleted
                           ? "rgba(76,175,80,0.25)"
                           : isNext
-                          ? "rgba(225,6,0,0.3)"
-                          : "transparent"
-                      }`,
+                            ? "rgba(225,6,0,0.3)"
+                            : "transparent"
+                        }`,
                     }}
                   >
                     {isCompleted ? (
@@ -129,7 +127,7 @@ export default function Calendar() {
                           fontFamily: "'Barlow Condensed', sans-serif",
                           fontSize: 13,
                           fontWeight: 800,
-                          color: isNext ? "#E10600" : "#555555",
+                          color: isNext ? "#E10600" : "var(--ff-text-tertiary)",
                         }}
                       >
                         {race.round}
@@ -150,7 +148,7 @@ export default function Calendar() {
                           fontFamily: "'Barlow Condensed', sans-serif",
                           fontSize: 14,
                           fontWeight: 800,
-                          color: isCompleted ? "#888888" : "#FFFFFF",
+                          color: isCompleted ? "var(--ff-text-secondary)" : "var(--ff-text-primary)",
                           textTransform: "uppercase",
                           letterSpacing: "0.02em",
                         }}
@@ -192,7 +190,7 @@ export default function Calendar() {
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 11,
-                        color: "#444444",
+                        color: "var(--ff-text-tertiary)",
                       }}
                     >
                       {race.date} · {race.city}
@@ -214,9 +212,9 @@ export default function Calendar() {
                       </span>
                     )}
                     {isExpanded ? (
-                      <ChevronUp size={16} style={{ color: "#555555" }} />
+                      <ChevronUp size={16} style={{ color: "var(--ff-text-tertiary)" }} />
                     ) : (
-                      <ChevronDown size={16} style={{ color: "#333333" }} />
+                      <ChevronDown size={16} style={{ color: "var(--ff-text-tertiary)" }} />
                     )}
                   </div>
                 </div>
@@ -230,7 +228,7 @@ export default function Calendar() {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.2 }}
                   style={{
-                    borderTop: "1px solid rgba(255,255,255,0.06)",
+                    borderTop: "1px solid var(--ff-divider)",
                     overflow: "hidden",
                   }}
                 >
@@ -240,7 +238,7 @@ export default function Calendar() {
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 12,
-                        color: "#666666",
+                        color: "var(--ff-text-secondary)",
                         marginBottom: 12,
                       }}
                     >
@@ -252,14 +250,14 @@ export default function Calendar() {
                       <div
                         className="rounded-lg p-2"
                         style={{
-                          background: "rgba(255,255,255,0.04)",
+                          background: "var(--ff-status-bg)",
                         }}
                       >
                         <p
                           style={{
                             fontFamily: "'Barlow Condensed', sans-serif",
                             fontSize: 10,
-                            color: "#555555",
+                            color: "var(--ff-text-tertiary)",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",
                           }}
@@ -270,7 +268,7 @@ export default function Calendar() {
                           style={{
                             fontFamily: "'Inter', sans-serif",
                             fontSize: 13,
-                            color: "#CCCCCC",
+                            color: "var(--ff-text-on-surface)",
                             fontWeight: 500,
                           }}
                         >
@@ -280,14 +278,14 @@ export default function Calendar() {
                       <div
                         className="rounded-lg p-2"
                         style={{
-                          background: "rgba(255,255,255,0.04)",
+                          background: "var(--ff-status-bg)",
                         }}
                       >
                         <p
                           style={{
                             fontFamily: "'Barlow Condensed', sans-serif",
                             fontSize: 10,
-                            color: "#555555",
+                            color: "var(--ff-text-tertiary)",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",
                           }}
@@ -298,7 +296,7 @@ export default function Calendar() {
                           style={{
                             fontFamily: "'Inter', sans-serif",
                             fontSize: 13,
-                            color: "#CCCCCC",
+                            color: "var(--ff-text-on-surface)",
                             fontWeight: 500,
                           }}
                         >
@@ -328,7 +326,7 @@ export default function Calendar() {
                             style={{
                               fontFamily: "'Inter', sans-serif",
                               fontSize: 13,
-                              color: "#CCCCCC",
+                              color: "var(--ff-text-on-surface)",
                               fontWeight: 500,
                             }}
                           >
@@ -353,7 +351,7 @@ export default function Calendar() {
                               style={{
                                 fontFamily: "'Barlow Condensed', sans-serif",
                                 fontSize: 10,
-                                color: "#555555",
+                                color: "var(--ff-text-tertiary)",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",
                               }}
@@ -365,7 +363,7 @@ export default function Calendar() {
                                 fontFamily: "'Inter', sans-serif",
                                 fontSize: 14,
                                 fontWeight: 600,
-                                color: "#FFFFFF",
+                                color: "var(--ff-text-primary)",
                               }}
                             >
                               🏆 {race.winner}
@@ -385,7 +383,7 @@ export default function Calendar() {
                               style={{
                                 fontFamily: "'Barlow Condensed', sans-serif",
                                 fontSize: 10,
-                                color: "#555555",
+                                color: "var(--ff-text-tertiary)",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",
                               }}
@@ -415,7 +413,7 @@ export default function Calendar() {
                               style={{
                                 fontFamily: "'Inter', sans-serif",
                                 fontSize: 11,
-                                color: "#888888",
+                                color: "var(--ff-text-secondary)",
                               }}
                             >
                               Giro Veloce:{" "}

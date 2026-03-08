@@ -64,13 +64,13 @@ export default function Market() {
   return (
     <div
       className="min-h-screen pb-24"
-      style={{ background: "#0A0A0A", fontFamily: "'Inter', sans-serif" }}
+      style={{ background: "var(--ff-bg)", fontFamily: "'Inter', sans-serif" }}
     >
       {/* Budget Header */}
       <div
         className="mx-4 mt-4 rounded-2xl p-4 flex items-center justify-between"
         style={{
-          background: "linear-gradient(135deg, #001A00 0%, #0D0D0D 100%)",
+          background: "var(--ff-surface)",
           border: "1px solid rgba(76,175,80,0.2)",
         }}
       >
@@ -79,7 +79,7 @@ export default function Market() {
             style={{
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 11,
-              color: "#555555",
+              color: "var(--ff-text-tertiary)",
               textTransform: "uppercase",
               letterSpacing: "0.1em",
             }}
@@ -103,7 +103,7 @@ export default function Market() {
             style={{
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 11,
-              color: "#555555",
+              color: "var(--ff-text-tertiary)",
               textTransform: "uppercase",
               letterSpacing: "0.08em",
             }}
@@ -115,12 +115,12 @@ export default function Market() {
               fontFamily: "'Barlow Condensed', sans-serif",
               fontSize: 18,
               fontWeight: 800,
-              color: "#FFFFFF",
+              color: "var(--ff-text-primary)",
             }}
           >
             5 Piloti + 1 Cost.
           </p>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "#444444" }}>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: "var(--ff-text-tertiary)" }}>
             Max 3 per team
           </p>
         </div>
@@ -131,11 +131,11 @@ export default function Market() {
         <div
           className="flex-1 flex items-center gap-2 px-3 py-2.5 rounded-xl"
           style={{
-            background: "#141414",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "var(--ff-search-bg)",
+            border: "1px solid var(--ff-search-border)",
           }}
         >
-          <Search size={16} style={{ color: "#555555" }} />
+          <Search size={16} style={{ color: "var(--ff-text-tertiary)" }} />
           <input
             type="text"
             placeholder="Cerca pilota o team..."
@@ -145,12 +145,12 @@ export default function Market() {
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 14,
-              color: "#FFFFFF",
+              color: "var(--ff-search-text)",
             }}
           />
           {search && (
             <button onClick={() => setSearch("")}>
-              <X size={14} style={{ color: "#555555" }} />
+              <X size={14} style={{ color: "var(--ff-text-tertiary)" }} />
             </button>
           )}
         </div>
@@ -158,9 +158,9 @@ export default function Market() {
           onClick={() => setShowFilters(!showFilters)}
           className="flex items-center justify-center rounded-xl px-3"
           style={{
-            background: showFilters ? "rgba(225,6,0,0.15)" : "#141414",
-            border: `1px solid ${showFilters ? "rgba(225,6,0,0.4)" : "rgba(255,255,255,0.08)"}`,
-            color: showFilters ? "#E10600" : "#888888",
+            background: showFilters ? "rgba(225,6,0,0.15)" : "var(--ff-search-bg)",
+            border: `1px solid ${showFilters ? "rgba(225,6,0,0.4)" : "var(--ff-search-border)"}`,
+            color: showFilters ? "#E10600" : "var(--ff-text-secondary)",
           }}
         >
           <SlidersHorizontal size={18} />
@@ -179,15 +179,15 @@ export default function Market() {
             <div
               className="rounded-xl p-3"
               style={{
-                background: "#141414",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "var(--ff-surface)",
+                border: "1px solid var(--ff-surface-border)",
               }}
             >
               <p
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontSize: 11,
-                  color: "#555555",
+                  color: "var(--ff-text-tertiary)",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   marginBottom: 8,
@@ -207,11 +207,11 @@ export default function Market() {
                     onClick={() => setSortBy(s.key)}
                     className="px-3 py-1.5 rounded-lg"
                     style={{
-                      background: sortBy === s.key ? "#E10600" : "rgba(255,255,255,0.06)",
+                      background: sortBy === s.key ? "#E10600" : "var(--ff-chip-bg)",
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 12,
                       fontWeight: 700,
-                      color: sortBy === s.key ? "white" : "#888888",
+                      color: sortBy === s.key ? "white" : "var(--ff-chip-text)",
                       letterSpacing: "0.04em",
                     }}
                   >
@@ -226,7 +226,7 @@ export default function Market() {
                     style={{
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 11,
-                      color: "#555555",
+                      color: "var(--ff-text-tertiary)",
                       textTransform: "uppercase",
                       letterSpacing: "0.1em",
                       marginBottom: 8,
@@ -241,11 +241,11 @@ export default function Market() {
                         onClick={() => setFilterTeam(t)}
                         className="px-3 py-1.5 rounded-lg"
                         style={{
-                          background: filterTeam === t ? "#E10600" : "rgba(255,255,255,0.06)",
+                          background: filterTeam === t ? "#E10600" : "var(--ff-chip-bg)",
                           fontFamily: "'Barlow Condensed', sans-serif",
                           fontSize: 11,
                           fontWeight: 700,
-                          color: filterTeam === t ? "white" : "#888888",
+                          color: filterTeam === t ? "white" : "var(--ff-chip-text)",
                         }}
                       >
                         {t === "all" ? "Tutti" : t}
@@ -263,8 +263,8 @@ export default function Market() {
       <div
         className="flex mx-4 mt-3 rounded-xl overflow-hidden"
         style={{
-          background: "#141414",
-          border: "1px solid rgba(255,255,255,0.06)",
+          background: "var(--ff-surface)",
+          border: "1px solid var(--ff-surface-border)",
           padding: 4,
           gap: 4,
         }}
@@ -281,7 +281,7 @@ export default function Market() {
               letterSpacing: "0.04em",
               textTransform: "uppercase",
               background: activeTab === i ? "#E10600" : "transparent",
-              color: activeTab === i ? "white" : "#555555",
+              color: activeTab === i ? "white" : "var(--ff-text-tertiary)",
             }}
           >
             {tab}
@@ -300,14 +300,13 @@ export default function Market() {
               transition={{ delay: idx * 0.03, duration: 0.2 }}
               className="rounded-xl overflow-hidden cursor-pointer"
               style={{
-                background: driver.owned ? "rgba(225,6,0,0.05)" : "#141414",
-                border: `1px solid ${
-                  selectedDriver === driver.id
+                background: driver.owned ? "rgba(225,6,0,0.05)" : "var(--ff-surface)",
+                border: `1px solid ${selectedDriver === driver.id
                     ? "rgba(225,6,0,0.5)"
                     : driver.owned
-                    ? "rgba(225,6,0,0.15)"
-                    : "rgba(255,255,255,0.05)"
-                }`,
+                      ? "rgba(225,6,0,0.15)"
+                      : "var(--ff-surface-border)"
+                  }`,
               }}
               onClick={() =>
                 setSelectedDriver(
@@ -341,7 +340,7 @@ export default function Market() {
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 13,
                         fontWeight: 600,
-                        color: "#FFFFFF",
+                        color: "var(--ff-text-primary)",
                       }}
                     >
                       {driver.name}
@@ -372,12 +371,12 @@ export default function Market() {
                     >
                       {driver.team}
                     </span>
-                    <span style={{ color: "#333333", fontSize: 10 }}>•</span>
+                    <span style={{ color: "var(--ff-text-tertiary)", fontSize: 10 }}>•</span>
                     <span
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 11,
-                        color: "#555555",
+                        color: "var(--ff-text-tertiary)",
                       }}
                     >
                       Media: {driver.avgPoints.toFixed(1)} pts/GP
@@ -393,7 +392,7 @@ export default function Market() {
                           fontFamily: "'Barlow Condensed', sans-serif",
                           fontSize: 18,
                           fontWeight: 800,
-                          color: "#FFFFFF",
+                          color: "var(--ff-text-primary)",
                           lineHeight: 1,
                         }}
                       >
@@ -403,7 +402,7 @@ export default function Market() {
                         style={{
                           fontFamily: "'Inter', sans-serif",
                           fontSize: 9,
-                          color: "#555555",
+                          color: "var(--ff-text-tertiary)",
                         }}
                       >
                         pts
@@ -412,7 +411,7 @@ export default function Market() {
                     <div
                       className="rounded-lg px-2 py-1 text-right"
                       style={{
-                        background: "rgba(255,255,255,0.04)",
+                        background: "var(--ff-badge-bg)",
                       }}
                     >
                       <p
@@ -441,25 +440,25 @@ export default function Market() {
                     transition={{ duration: 0.2 }}
                     style={{
                       overflow: "hidden",
-                      borderTop: "1px solid rgba(255,255,255,0.06)",
+                      borderTop: "1px solid var(--ff-divider)",
                     }}
                   >
                     <div className="flex items-center justify-between px-3 py-3">
                       <div>
                         <div className="flex gap-4">
                           <div>
-                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 10, color: "#555555", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 10, color: "var(--ff-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                               Ultimo GP
                             </p>
-                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 18, fontWeight: 800, color: "#FFFFFF" }}>
+                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 18, fontWeight: 800, color: "var(--ff-text-primary)" }}>
                               {driver.lastRacePoints} pts
                             </p>
                           </div>
                           <div>
-                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 10, color: "#555555", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 10, color: "var(--ff-text-tertiary)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                               Media/GP
                             </p>
-                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 18, fontWeight: 800, color: "#FFFFFF" }}>
+                            <p style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 18, fontWeight: 800, color: "var(--ff-text-primary)" }}>
                               {driver.avgPoints.toFixed(1)}
                             </p>
                           </div>
@@ -493,17 +492,17 @@ export default function Market() {
                             style={{
                               background:
                                 driver.price > budget
-                                  ? "rgba(255,255,255,0.05)"
+                                  ? "var(--ff-badge-bg)"
                                   : "#E10600",
                               border:
                                 driver.price > budget
-                                  ? "1px solid rgba(255,255,255,0.1)"
+                                  ? "1px solid var(--ff-surface-border)"
                                   : "none",
                               fontFamily: "'Barlow Condensed', sans-serif",
                               fontSize: 13,
                               fontWeight: 800,
                               color:
-                                driver.price > budget ? "#555555" : "white",
+                                driver.price > budget ? "var(--ff-text-tertiary)" : "white",
                               letterSpacing: "0.04em",
                               textTransform: "uppercase",
                               cursor:
@@ -543,8 +542,8 @@ export default function Market() {
               transition={{ delay: idx * 0.04, duration: 0.2 }}
               className="rounded-xl overflow-hidden"
               style={{
-                background: c.owned ? "rgba(225,6,0,0.05)" : "#141414",
-                border: `1px solid ${c.owned ? "rgba(225,6,0,0.15)" : "rgba(255,255,255,0.05)"}`,
+                background: c.owned ? "rgba(225,6,0,0.05)" : "var(--ff-surface)",
+                border: `1px solid ${c.owned ? "rgba(225,6,0,0.15)" : "var(--ff-surface-border)"}`,
               }}
             >
               <div className="h-0.5" style={{ background: c.color }} />
@@ -570,7 +569,7 @@ export default function Market() {
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 14,
                         fontWeight: 600,
-                        color: "#FFFFFF",
+                        color: "var(--ff-text-primary)",
                       }}
                     >
                       {c.name}
@@ -594,7 +593,7 @@ export default function Market() {
                     style={{
                       fontFamily: "'Barlow Condensed', sans-serif",
                       fontSize: 11,
-                      color: "#555555",
+                      color: "var(--ff-text-tertiary)",
                     }}
                   >
                     Ultimo GP: {c.lastRacePoints} pts
@@ -608,7 +607,7 @@ export default function Market() {
                         fontFamily: "'Barlow Condensed', sans-serif",
                         fontSize: 20,
                         fontWeight: 800,
-                        color: "#FFFFFF",
+                        color: "var(--ff-text-primary)",
                         lineHeight: 1,
                       }}
                     >
@@ -618,7 +617,7 @@ export default function Market() {
                       style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: 9,
-                        color: "#555555",
+                        color: "var(--ff-text-tertiary)",
                       }}
                     >
                       pts
@@ -626,7 +625,7 @@ export default function Market() {
                   </div>
                   <div
                     className="rounded-lg px-2 py-1 text-right"
-                    style={{ background: "rgba(255,255,255,0.04)" }}
+                    style={{ background: "var(--ff-badge-bg)" }}
                   >
                     <p
                       style={{
@@ -658,11 +657,11 @@ export default function Market() {
                     <button
                       className="px-3 py-2 rounded-lg"
                       style={{
-                        background: c.price > budget ? "rgba(255,255,255,0.04)" : "#E10600",
+                        background: c.price > budget ? "var(--ff-badge-bg)" : "#E10600",
                         fontFamily: "'Barlow Condensed', sans-serif",
                         fontSize: 11,
                         fontWeight: 800,
-                        color: c.price > budget ? "#555555" : "white",
+                        color: c.price > budget ? "var(--ff-text-tertiary)" : "white",
                       }}
                       disabled={c.price > budget}
                     >
